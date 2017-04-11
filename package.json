@@ -1,0 +1,27 @@
+{
+  "name": "tanium_wdc",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./server",
+    "dev": "DEBUG=app:server* nodemon ./server",
+    "debug": "DEBUG=app:* nodemon ./server",
+    "port80": "PORT=80 nodemon ./server"
+  },
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "express": "~4.14.1",
+    "fs": "0.0.1-security",
+    "hjs": "~0.0.6",
+    "morgan": "~1.7.0",
+    "node-sass-middleware": "0.9.8",
+    "serve-favicon": "~2.3.2",
+    "strong-soap": "^1.2.3",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

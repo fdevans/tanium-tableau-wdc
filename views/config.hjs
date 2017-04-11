@@ -1,0 +1,52 @@
+<html>
+<meta http-equiv="Cache-Control" content="no-store" />
+
+<head>
+  <title>Tanium SOAP</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+  <script type="text/javascript">
+  function submitConfig(input){
+    var endpoint = document.getElementById("soap_endpoint_url");
+    var login = document.getElementById("taniumLogin");
+    var pwd = document.getElementById("taniumLoginPWD");
+    var pwd2 = document.getElementById("taniumLoginPWD2");
+    if (pwd.value != pwd2.value) {
+      document.getElementById("errMsg").innerHTML = "The passwords do not match";
+    } else if (endpoint.value == "") {
+      document.getElementById("errMsg").innerHTML = "SOAP EndPoint Value can't be blank";
+    } else if (login.value == "") {
+      document.getElementById("errMsg").innerHTML = "Login Name Value can't be blank";
+    } else {
+      document.getElementById("configForm").submit();
+    }
+  }
+  </script>
+  </head>
+
+  <body>
+    <h1>Tanium Web Data Connector</h1>
+    <b>Configuration:</b>
+    <p>
+    <form role="form" action="config" id="configForm" autocomplete="off" method="post" enctype='application/json'>
+      <table>
+        <tr><td>
+          SOAP Endpoint URL:</td><td><input id="soap_endpoint_url" name="soap_endpoint_url"></input><br>
+        </tr></td>
+        <tr><td>
+        Tanium Login:</td><td><input id="taniumLogin" name="taniumLogin"></input><br>
+      </tr></td>
+      <tr><td>
+        Tanium Password:</td><td><input type="password" id="taniumLoginPWD" name="taniumLoginPWD"></input><br>
+      </tr></td>
+      <tr><td>
+        Repeat Password:</td><td><input type="password" id="taniumLoginPWD2" name="taniumLoginPWD2"></input><br>
+      </tr></td>
+        <tr><td>
+        </table>
+      <br>
+      <button type="button" id="submitForm" onclick="submitConfig()">Save Config</button>
+      <p>
+      <p id="errMsg"></p>
+    </form>
+  </body>
+</html>
