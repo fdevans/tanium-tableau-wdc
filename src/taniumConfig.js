@@ -41,7 +41,16 @@ exports.setConfig = function(input){
 		output.resolve({"error":"You must specify the endpoint, login, and password"});
 	} else {
 		debug("Got config values")
-		var currentConfig = fs.readFileSync('./t.config');
+		try {
+			var currentConfig = fs.readFileSync('./t.config');
+		} catch (err){
+			if (err.code === 'ENOENT') {
+			  debug('File not found!');
+				currentConfig = currentConfig = '{"wsdl_path":"./wsdl/console.wsdl"}';
+			} else {
+			  throw err;
+			}
+		}
 		if (String(currentConfig) === "") {
 			debug("No Current Config");
 			currentConfig = {"wsdl_path":"./wsdl/console.wsdl"};
