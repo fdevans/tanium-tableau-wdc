@@ -22,3 +22,9 @@ After the configuration is saved you will be redirected to `http://127.0.0.1/`. 
 - Select the Question you would like to use.
 - Click "Check Question Results". This will report the percentage of clients have responded to to the Saved Question.
 - Once all the clients have responded you can click "Get Results" to import the data.
+
+Other Notes:
+- Use the following commands for different run modes
+  - "npm run dev" - Runs with basic troubleshooting output to console
+  - "npm run debug" - Runs with extensive logging to conosole
+  - "npm run Port80" - Runs it using port 80 (may need to run using sudo command.  not tested on Windows)
