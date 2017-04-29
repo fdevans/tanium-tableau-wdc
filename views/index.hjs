@@ -17,9 +17,8 @@
     getTheQuestions();
   }
   function getTheQuestions(){
-    var webPort = window.location.port;
-    console.log("Web Port: " + webPort);
     $.getJSON('http://' + window.location.hostname + ":" + window.location.port + '/tanium/tableauWDC/', function(data){
+      console.log(data);
       output = "";
       for (x=0;x<data.length;x++){
         output += "<option value='" + data[x].id + "'>" + data[x].question + "</option>";

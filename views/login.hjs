@@ -1,0 +1,29 @@
+<html>
+<meta http-equiv="Cache-Control" content="no-store" />
+
+<head>
+  <title>Tanium SOAP</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+</head>
+<body>
+<h1>Tanium Web Data Connector</h1>
+<p>Use your Tanium Login Credentials to Authenticate</p>
+<b>Login:</b>
+<form action="/login" method="post">
+  <div>
+    <label>UserName:</label>
+    <input type="text" name="username"/>
+  </div>
+  <p>
+  <div>
+    <label>Password:</label>
+    <input type="password" name="password"/>
+  </div>
+  <p>
+  <div>
+    <input type="submit" value="Log In"/>
+  </div>
+  <p>{{errorMsg}}</p>
+</form>
+</body>
+</html>

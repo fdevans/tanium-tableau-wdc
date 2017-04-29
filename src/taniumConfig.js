@@ -10,12 +10,14 @@ exports.getConfig = function() {
 
 	debug("Running taniumConfig");
 	devDebug(configVars);
-	if (configVars.taniumLoginPWD === "") {
-		debug("No Login Password specified.");
-		output.resolve({"error":"No Password in config file"})
+	if (configVars.soap_endpoint_url === "") {
+		debug("No endpoint URL specified.");
+		output.resolve({"error":"No endpoint URL in config file"})
 	} else {
+		devDebug("Endpoint URL: " + configVars.soap_endpoint_url);
 		output.resolve(configVars);
 	}
+	debug("Get Config Complete");
 	return output.promise;
 };
 
@@ -24,23 +26,17 @@ exports.setConfig = function(input){
 	var output = Q.defer();
 	// expectedInputSample = {
 	// 	  "soap_endpoint_url":"https://mytaniumserver/soap",
-	// 	  "taniumLogin" : "user",
-	// 	  "taniumLoginPWD" : "password"
 	// 	}
-	debug(input);
+	devDebug(input);
 	if (input.taniumLoginPWD2) {
 		delete input.taniumLoginPWD2;
 	}
 	if ((!(input.soap_endpoint_url)) ||
-			(input.soap_endpoint_url == "") ||
-	 		(!(input.taniumLogin)) ||
-			(input.taniumLogin == "") ||
-	 		(!(input.taniumLoginPWD)) ||
-			(input.taniumLoginPWD == "")
+			(input.soap_endpoint_url == "")
 		) {
-		output.resolve({"error":"You must specify the endpoint, login, and password"});
+		output.resolve({"error":"You must specify the endpoint."});
 	} else {
-		debug("Got config values")
+		devDebug("Got config values")
 		try {
 			var currentConfig = fs.readFileSync('./t.config');
 		} catch (err){
@@ -70,7 +66,6 @@ exports.setConfig = function(input){
 			}
 			debug("New Config Values Saved");
 		});
-		input.taniumLoginPWD = "**********"
 		output.resolve(input);
 	}
 return output.promise;
