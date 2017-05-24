@@ -1,6 +1,6 @@
 # Tanium Tableau Web Data Connector
 
-Built using NodeJS this solution will run on your local machine and allow for pulling data extracts from the Tanium SOAP API into Tableau.
+Built using NodeJS/Express this solution will run on your local machine and allow for pulling data extracts from the Tanium SOAP API into Tableau.
 
 ## Instructions
 
